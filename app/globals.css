@@ -31,3 +31,174 @@ body {
     text-wrap: balance;
   }
 }
+
+.heading-110-bold {
+  @apply text-[110px] leading-[115px] font-bold;
+}
+.heading-110-semibold {
+  @apply text-[110px] leading-[115px] font-semibold;
+}
+.heading-110-medium {
+  @apply text-[110px] leading-[115px] font-semibold;
+}
+.heading-110-regular {
+  @apply text-[110px] leading-[115px] font-normal;
+}
+
+.heading-90-bold {
+  @apply text-[90px] leading-[98px] font-bold;
+}
+.heading-90-semibold {
+  @apply text-[90px] leading-[98px] font-semibold;
+}
+.heading-90-medium {
+  @apply text-[90px] leading-[98px] font-semibold;
+}
+.heading-90-regular {
+  @apply text-[90px] leading-[98px] font-normal;
+}
+
+.heading-64-bold {
+  @apply text-[64px] leading-[68px] font-bold;
+}
+.heading-64-semibold {
+  @apply text-[64px] leading-[68px] font-semibold;
+}
+.heading-64-medium {
+  @apply text-[64px] leading-[68px] font-semibold;
+}
+.heading-64-regular {
+  @apply text-[64px] leading-[68px] font-normal;
+}
+
+.heading-54-bold {
+  @apply text-[54px] leading-[64px] font-bold;
+}
+.heading-54-semibold {
+  @apply text-[54px] leading-[64px] font-semibold;
+}
+.heading-54-medium {
+  @apply text-[54px] leading-[64px] font-semibold;
+}
+.heading-54-regular {
+  @apply text-[54px] leading-[64px] font-semibold;
+}
+
+/* 48px */
+.heading-48-bold {
+  @apply text-[48px] leading-[52px] font-bold;
+}
+.heading-48-semibold {
+  @apply text-[48px] leading-[60px] font-semibold;
+}
+.heading-48-medium {
+  @apply text-[48px] leading-[60px] font-semibold;
+}
+.heading-48-regular {
+  @apply text-[48px] leading-[60px] font-semibold;
+}
+/* 48px */
+
+.heading-36-bold {
+  @apply text-[36px] leading-[30px] font-bold;
+}
+.heading-36-semibold {
+  @apply text-[36px] leading-[48px] font-semibold;
+}
+.heading-36-medium {
+  @apply text-[36px] leading-[30px] font-semibold;
+}
+.heading-36-regular {
+  @apply text-[36px] leading-[30px] font-normal;
+}
+
+.heading-32-bold {
+  @apply text-[32px] leading-[30px] font-bold;
+}
+.heading-32-semibold {
+  @apply text-[32px] leading-[30px] font-semibold;
+}
+.heading-32-medium {
+  @apply text-[32px] leading-[30px] font-semibold;
+}
+.heading-32-regular {
+  @apply text-[32px] leading-[30px] font-normal;
+}
+
+.heading-24-bold {
+  @apply text-[24px] leading-[24px] font-bold;
+}
+.heading-24-semibold {
+  @apply text-[24px] leading-[24px] font-semibold;
+}
+.heading-24-medium {
+  @apply text-[24px] leading-[24px] font-semibold;
+}
+.heading-24-regular {
+  @apply text-[24px] leading-[24px] font-regular;
+}
+
+.heading-20-bold {
+  @apply text-[20px] leading-[30px] font-bold;
+}
+.heading-20-semibold {
+  @apply text-[20px] leading-[30px] font-semibold;
+}
+.heading-20-medium {
+  @apply text-[20px] leading-[30px] font-semibold;
+}
+.heading-20-regular {
+  @apply text-[20px] leading-[30px] font-normal;
+}
+
+/* Title */
+
+.title-24-semibold {
+  @apply text-[24px] leading-[32px] font-semibold;
+}
+.title-24-medium {
+  @apply text-[24px] leading-[32px] font-medium;
+}
+.title-24-regular {
+  @apply text-[24px] leading-[32px] font-normal;
+}
+
+.title-20-semibold {
+  @apply text-[20px] leading-[28px] font-semibold;
+}
+.title-20-medium {
+  @apply text-[20px] leading-[28px] font-medium;
+}
+.title-20-regular {
+  @apply text-[20px] leading-[26px] font-normal;
+}
+
+.title-16-semibold {
+  @apply text-[16px] leading-[20px] font-semibold;
+}
+.title-16-medium {
+  @apply text-[16px] leading-[24px] font-medium;
+}
+.title-16-regular {
+  @apply text-[16px] leading-[24px] font-normal;
+}
+
+.title-14-semibold {
+  @apply text-[14px] leading-[21px] font-semibold;
+}
+.title-14-medium {
+  @apply text-[14px] leading-[21px] font-medium;
+}
+.title-14-regular {
+  @apply text-[14px] leading-[21px] font-normal;
+}
+
+.title-12-semibold {
+  @apply text-[12px] leading-[18px] font-semibold;
+}
+.title-12-medium {
+  @apply text-[12px] leading-[18px] font-medium;
+}
+.title-12-regular {
+  @apply text-[12px] leading-[18px] font-normal;
+}
