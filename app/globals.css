@@ -135,7 +135,7 @@ body {
   @apply text-[24px] leading-[24px] font-semibold;
 }
 .heading-24-regular {
-  @apply text-[24px] leading-[24px] font-regular;
+  @apply text-[24px] leading-[24px] font-normal;
 }
 
 .heading-20-bold {
