@@ -26,8 +26,8 @@ const config: Config = {
         'Secondary2': '#DB4444',
         'Button1': '#00FF66',
         'Button2': '#DB4444',
-        'Hover Button1': '#E07575',
-        'Hover Button2': '#A0BCE0'  
+        'HoverButton1': '#E07575',
+        'HoverButton2': '#A0BCE0'  
       }
     },
   },
