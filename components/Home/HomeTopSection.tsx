@@ -17,6 +17,24 @@ const categories = [
   "Health & Beauty",
 ];
 
+const ChevronArrowRight = ({ className }: { className: string }) => {
+  return (
+    <svg
+      width="8"
+      height="13"
+      viewBox="0 0 8 13"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M4.95 6.63597L0 1.68597L1.414 0.271973L7.778 6.63597L1.414 13L0 11.586L4.95 6.63597Z"
+        fill="black"
+      />
+    </svg>
+  );
+};
+
 const HomeTopSection = () => {
   return (
     <div className="mx-[30px] mb-[4rem] flex justify-between w-full">
@@ -42,11 +60,11 @@ const HomeTopSection = () => {
   );
 };
 
-export function ShopNowButton({arrow}: {arrow: boolean}) {
+export function ShopNowButton({ arrow }: { arrow: boolean }) {
   return (
     <button className="title-16-medium flex gap-3 items-center">
       <span className="border-b border-primary">Shop Now</span>
-      
+
       {arrow && <RightArrow className="text-white" stroke="white" />}
     </button>
   );
@@ -54,13 +72,17 @@ export function ShopNowButton({arrow}: {arrow: boolean}) {
 
 function Aside() {
   return (
-    <div className=" space-y-4 text-Button border-r py-14 border-opacity-20 border-black">
+    <div className=" space-y-4 text-Button border-r py-14 pr-7 border-opacity-20 border-black">
       {categories.map((category, i) => (
-        <Link href="#" key={category} className="flex items-center gap-8">
-          {category}
+        <Link
+          href="#"
+          key={category}
+          className="flex items-center gap-4 "
+        >
+          <span> {category}</span>
           {(i === 0 || i === 1) && (
             <span>
-              <ChevronArrowDown />
+              <ChevronArrowRight className="w-3 h-3" />
             </span>
           )}
         </Link>
