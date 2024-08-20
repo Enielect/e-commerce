@@ -63,7 +63,7 @@ const NavigationButtons = () => {
 
 const CouponOption = () => {
   return (
-    <div className="flex items-start  ">
+    <div className="flex items-start text-Button ">
       <div className="flex items-center gap-[1rem]">
         <input
           type="text"

@@ -51,8 +51,6 @@ const CartTable = () => {
   );
 };
 
-
-
 const TableHeader = () => {
   return (
     <thead className="text-left h-[4rem]">
@@ -67,6 +65,8 @@ const TableHeader = () => {
 };
 
 const TableRow = ({ item }: { item: (typeof wishList)[0] }) => {
+  const [totalPrice, setTotalPrice] = useState(item.price);
+  const [count, setCount] = useState(1);
   return (
     <tr className="h-[8rem] border-b border-[#E5E5E5] ">
       <td className="h-full">
@@ -77,9 +77,9 @@ const TableRow = ({ item }: { item: (typeof wishList)[0] }) => {
       </td>
       <td className="text-Button">{formatCurrency(item.price)}</td>
       <td className="text-Button">
-        <Counter />
+        <Counter count={count} setCount={setCount} />
       </td>
-      <td className="text-Button">{formatCurrency(item.price)}</td>
+      <td className="text-Button">{formatCurrency(item.price * count)}</td>
     </tr>
   );
 };
@@ -101,8 +101,14 @@ const ChevronArrowUp = () => {
   );
 };
 
-function Counter() {
-  const [count, setCount] = useState(0);
+function Counter({
+  count,
+  setCount,
+}: {
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
+}) {
+  // const [count, setCount] = useState(1);
   return (
     <div className="text-Button min-w-16  p-1 rounded-md flex w-fit items-center border border-Button">
       <span className="px-2 flex items-center h-[25px] leading-[25px]">
@@ -112,7 +118,7 @@ function Counter() {
         <button onClick={() => setCount((c) => c + 1)}>
           <ChevronArrowUp />
         </button>
-        <button disabled={count === 0} onClick={() => setCount((c) => c - 1)}>
+        <button disabled={count === 1} onClick={() => setCount((c) => c - 1)}>
           <ChevronArrowDown className="w-[0.7rem] h-[0.7rem]" />
         </button>
       </span>
