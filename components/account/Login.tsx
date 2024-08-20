@@ -1,7 +1,11 @@
-import { GoogleIcon } from "@/assets/svgIcons";
+"use client";
+
+import { loginAction } from "@/app/actions/auth";
+import { FormState } from "@/lib/definitions";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useFormState, useFormStatus } from "react-dom";
 
 const Login = () => {
   return (
@@ -15,11 +19,7 @@ const Login = () => {
           alt="login"
         />
       </div>
-      <div className="space-y-5 flex-1 px-[13rem] py-[10rem]">
-        <Label title="Log in to Exclusive" label="Enter your details below" />
-        <FormFields type="login" />
-        <Buttons />
-      </div>
+      <LoginForm />
     </div>
   );
 };
@@ -33,35 +33,39 @@ export function Label({ title, label }: { title: string; label: string }) {
   );
 }
 
-export function FormFields({ type }: { type: "signUp" | "login" }) {
+function LoginForm() {
+  const [state, action] = useFormState(loginAction, undefined);
+  const { pending } = useFormStatus();
+
   return (
-    <div className="flex flex-col gap-4">
-      {type === "signUp" && (
-        <input
-          type="text"
-          placeholder="Name"
-          className="border-Button border-b outline-transparent p-2"
-        />
-      )}
-      <input
-        type="text"
-        placeholder="Email or Phone Number"
-        className="border-Button border-b outline-transparent p-2"
-      />
-      <input
-        type="text"
-        placeholder="Password"
-        className="border-Button border-b outline-transparent p-2"
-      />
-    </div>
+    <form action={action} className="space-y-5 flex-1 px-[13rem] py-[10rem]">
+      <Label title="Log in to Exclusive" label="Enter your details below" />
+      <FormFields state={state as FormState} type="login" />
+      <Buttons pending={pending} type="submit" />
+    </form>
   );
 }
 
-function Buttons() {
+function Buttons({
+  pending,
+  type,
+  ...buttonProps
+}: {
+  type: "submit" | undefined;
+  buttonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  pending: boolean;
+}) {
   return (
     <div className="w-full flex">
-      <button className="bg-Button2 px-4 py-3 text-white rounded-md flex-1">Create Account</button>
-      <div className="flex-1 flex justify-center items-center">
+      <button
+        {...buttonProps}
+        aria-disabled={pending} //what does this do
+        type={type} // Add the type prop here
+        className="bg-Button2 px-4 py-3 text-white rounded-md flex-1"
+      >
+        {pending ? "Loading..." : "Login"}
+      </button>
+      <div className="flex-[2] flex justify-center items-center">
         <Link href="#" className="text-Button2">
           Forget Password?
         </Link>
@@ -70,12 +74,75 @@ function Buttons() {
   );
 }
 
-function Option() {
+export function FormFields({
+  type,
+  state,
+}: {
+  state: FormState;
+  type: "signUp" | "login";
+}) {
   return (
-    <span className="block text-center py-3">
-      Already have account? <span>Login in</span>
-    </span>
+    <div className="flex flex-col gap-4">
+      {type === "signUp" && (
+        <>
+          <input
+            name="name"
+            type="text"
+            placeholder="Name"
+            className="border-Button border-b outline-transparent p-2"
+          />
+          {state?.errors?.name && (
+            <p className="text-red-500">{state.errors.name}</p>
+          )}
+        </>
+      )}
+      <input
+        name="email"
+        type="text"
+        placeholder="Email or Phone Number"
+        className="border-Button border-b outline-transparent p-2"
+      />
+      {state?.errors?.email && <p className="text-red-500">{state.errors.email}</p>}
+      <input
+        name="password"
+        type="password"
+        placeholder="Password"
+        className="border-Button border-b outline-transparent p-2"
+      />
+      {state?.errors?.password && (
+        <div className="text-red-500">
+          <p>Password must:</p>
+          <ul>
+            {state?.errors?.password?.map((error) => (
+              <li key={error}>- {error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   );
 }
+
+// function Buttons({
+//   ...buttonProps
+// }: {
+//   buttonProps: React.ButtonHTMLAttributes<HTMLButtonElement>;
+// }) {
+//   return (
+//     <div className="w-full flex">
+//       <button
+//         {...buttonProps}
+//         className="bg-Button2 px-4 py-3 text-white rounded-md flex-1"
+//       >
+//         Login
+//       </button>
+//       <div className="flex-[2] flex justify-center items-center">
+//         <Link href="#" className="text-Button2">
+//           Forget Password?
+//         </Link>
+//       </div>
+//     </div>
+//   );
+// }
 
 export default Login;
