@@ -6,6 +6,7 @@ import {
   SearchIcon,
   UserIcon,
 } from "@/assets/svgIcons";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const loggedIn = true;
@@ -152,6 +153,8 @@ const DropDown = () => {
   );
 };
 
+const navPaths = ["Home", "Contact", "About", "Sign Up"];
+
 const TopNav = () => {
   const [toggleDropDown, settoggleDropDown] = useState(false);
   return (
@@ -159,10 +162,11 @@ const TopNav = () => {
       <div className="heading-24-bold">Exclusive</div>
       <div className="menu">
         <ul className="flex title-16-regular gap-[40px]">
-          <li>Home</li>
-          <li>Contact</li>
-          <li>About</li>
-          <li>Sign Up</li>
+          {navPaths.map((ele) => (
+            <li key={ele} className="top-link">
+              <Link href={ele.toLowerCase().split(" ").join("")}>{ele}</Link>
+            </li>
+          ))}
         </ul>
       </div>
       <div className="flex gap-3">

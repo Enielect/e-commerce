@@ -25,7 +25,7 @@ const servicesContent = [
 
 const Services = () => {
   return (
-    <div className="w-full flex gap-14 text-Button">
+    <div className="w-full justify-center flex gap-14 text-Button">
       {servicesContent.map((service, index) => (
         <ServiceCard
           key={index}
@@ -54,8 +54,8 @@ function ServiceCard({
           {icon}
         </div>
       </div>
-        <h4 className="text-center">{offer}</h4>
-        <h6>{tag}</h6>
+      <h4 className="text-center">{offer}</h4>
+      <h6>{tag}</h6>
     </div>
   );
 }
