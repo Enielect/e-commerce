@@ -41,8 +41,8 @@ function TimerWrapper() {
 
 function Timer() {
   return (
-    <div className="bg-primary p-3 ronded-full flex flex-col justify-center rounded-full items-center">
-      <span className="text-16-semibold">23</span>
+    <div className="bg-primary p-3 w-[3.5rem] h-[3.5rem] ronded-full flex flex-col justify-center rounded-full items-center">
+      <span className="title-16-semibold">23</span>
       <span className="text-xs">hours</span>
     </div>
   );
